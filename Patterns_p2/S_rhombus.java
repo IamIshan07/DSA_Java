@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class S_rhombus{
     public static void Rhombus(int TotalLines , int TotalStarsInLine) {
-        for( int r = 1;r<= TotalLines ; r++){
+        for( int r = 1;r <= TotalLines ; r++){
             for(int cSpace = 1; cSpace <= TotalStarsInLine-r; cSpace++ ){
                 System.out.print("  ");
             }
@@ -24,7 +24,7 @@ public class S_rhombus{
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter how many lines you want to print : ");
         int TotalLines = sc.nextInt();
-        System.out.print("Enter how many lines you want to print : ");
+        System.out.print("Enter how many star in a line you want to print : ");
         int TotalStarsInLine = sc.nextInt();
         Rhombus(TotalLines,TotalStarsInLine);
 

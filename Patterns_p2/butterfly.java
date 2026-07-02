@@ -14,14 +14,13 @@ public class butterfly {
                 System.out.print("  ");
             }
 
-
             // for printing star = i number
             for (int c = 1; c <= r; c++) {
                 System.out.print("* ");
             }
             System.out.println();
         }
-        for (int r = TotalLines-1; r >= 1; r--) {
+        for (int r = TotalLines - 1; r >= 1; r--) {
             // for printing star = i number
             for (int c = 1; c <= r; c++) {
                 System.out.print("* ");
