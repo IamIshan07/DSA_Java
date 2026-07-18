@@ -9,11 +9,10 @@ public class Stocks {
     public static int buyAndSellStocks(int[] arr) {
         int maxProfit = 0;
         int buyingPrice = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            int profit = Integer.MIN_VALUE;
+        for (int i = 1; i < arr.length; i++) { 
             int sellPrice = arr[i];
             if (buyingPrice < sellPrice) {
-                profit = sellPrice - buyingPrice;
+                int profit = sellPrice - buyingPrice;
                 maxProfit = Math.max(maxProfit, profit);
             } else {
                 buyingPrice = sellPrice;
