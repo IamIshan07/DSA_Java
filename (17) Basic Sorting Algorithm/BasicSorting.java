@@ -1,19 +1,21 @@
 
-import java.util.Arrays;
-import java.util.Collections;
-
 public class BasicSorting {
 
     public static void main(String[] args) {
-        Integer[] arr = {1, 5, 4, 3, 2};
+        // int[] arr = {1, 5, 4, 3, 2};
+        Integer[] arr1 = {1, 5, 4, 3, 2};
+        int[] arr2 = {1, 2, 3, 4, 4, 2, 2, 1, 1, 2, 5, 3};
         // int[] arr = {1,2,3,4,5};
         // bubbleSort(arr);
         // selectionSort(arr);
         // insertionSort(arr);
         // Arrays.sort(arr);
         // Arrays.sort(arr,0,3);
-        Arrays.sort(arr, Collections.reverseOrder());
-        printArray(arr);
+        // Arrays.sort(arr1, Collections.reverseOrder());
+        countingSort(arr2);
+        // printArray(arr);
+        // printArrayFirst(arr);
+        printArraySecond(arr2);
 
     }
 
@@ -52,7 +54,7 @@ public class BasicSorting {
     }
 
     public static void insertionSort(int[] arr) {
-        // This id studied from NYC
+        // This is studied from NYC !!!
         //         int[] arr = {1, 5, 4, 3, 2};
         for (int i = 1; i < arr.length; i++) {
             int key = arr[i];
@@ -65,9 +67,42 @@ public class BasicSorting {
         }
     }
 
-    public static void printArray(Integer[] arr) {
+    public static void countingSort(int[] arr2) {
+        int largest = Integer.MIN_VALUE;
+        for (int i = 0; i < arr2.length; i++) {
+            largest = Math.max(largest, arr2[i]);
+        }
+        int[] count = new int[largest + 1];
+        for (int i = 0; i < arr2.length; i++) {
+            count[arr2[i]]++;
+        }
+
+        // Sorting 
+        int j = 0;
+        for (int i = 0; i < count.length; i++) {
+            while (count[i] > 0) {
+                arr2[j] = i;
+                count[i]--;
+                j++;
+            }
+        }
+    }
+
+    public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void printArrayFirst(Integer[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public static void printArraySecond(int[] arr2) {
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.print(arr2[i] + " ");
         }
     }
 }
