@@ -54,7 +54,7 @@ public class BasicSorting {
     }
 
     public static void insertionSort(int[] arr) {
-        // This is studied from NYC !!!
+        // This is studied from NYC !!!  // cards arrange logic 
         //         int[] arr = {1, 5, 4, 3, 2};
         for (int i = 1; i < arr.length; i++) {
             int key = arr[i];
