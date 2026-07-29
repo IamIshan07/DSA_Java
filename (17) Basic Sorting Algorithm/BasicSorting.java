@@ -20,18 +20,20 @@ public class BasicSorting {
     }
 
     public static void bubbleSort(int[] arr) {
+        boolean swap ;
         for (int turn = 0; turn < arr.length - 1; turn++) {
-            int swap = 0;
+            // int swap = 0;
+            swap = false;
             for (int j = 0; j < arr.length - 1 - turn; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int temp;
                     temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
-                    swap++;
+                    swap =true;
                 }
             }
-            if (swap == 0) {
+            if (swap = false) {
                 break;
             }
         }
