@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class GetIthBit {
+public class iThBitOperations {
 
     public static void main(String[] args) {
         System.out.print("Enter a number :");
