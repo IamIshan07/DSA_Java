@@ -1,4 +1,6 @@
 
+
+
 public class CopyConstructor {
 
     public static void main(String[] args) {
@@ -17,6 +19,9 @@ public class CopyConstructor {
             System.out.println(s2.marks[i]);
         }
 
+        Students s3 = s2;
+        System.out.println(s3.name);
+
     }
 }
 
@@ -27,12 +32,25 @@ class Students {
     String pass;
     int[] marks;
 
-    //copy constructor
+    // Shallow copy constructor
+
+    // Students(Students s1) {
+    //     marks = new int[3];
+    //     this.name = s1.name;
+    //     this.age = s1.age;
+    //     this.marks = s1.marks;
+    // }
+
+
+    // Deep copy Constructor 
+
     public Students(Students s1) {
-        marks = new int[3];
         this.name = s1.name;
-        this.age = s1.age;
-        this.marks = s1.marks;
+        this.marks = new int[3];
+
+        for (int i = 0; i < 3; i++) {
+            this.marks[i] = s1.marks[i];
+        }
     }
 
     Students() {
