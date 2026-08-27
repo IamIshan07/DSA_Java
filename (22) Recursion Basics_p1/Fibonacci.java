@@ -2,7 +2,7 @@
 public class Fibonacci {
 
     public static void main(String[] args) {
-        int n = 27;
+        int n = 5;
         System.out.println(fib(n));
     }
 
@@ -11,6 +11,10 @@ public class Fibonacci {
         if (n == 0 || n == 1) {
             return n;
         }
-        return fib(n - 1) + fib(n - 2);
+
+        int fnm1 = fib(n - 1);
+        int fnm2 = fib(n - 2);
+        int fn = fnm1 + fnm2;
+        return fn;
     }
 }
