@@ -16,8 +16,8 @@ public class RemoveDuplicates {
             return removeString(str, i + 1, alpha, strNew);
         } else {
             alpha[str.charAt(i) - 'a'] = true;
-            String new1 = strNew.append(str.charAt(i)).toString();
-            return removeString(str, i + 1, alpha, strNew);
+            StringBuilder new1 = strNew.append(str.charAt(i));
+            return removeString(str, i + 1, alpha, new1);
         }
 
     }
