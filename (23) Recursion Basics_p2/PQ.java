@@ -2,7 +2,20 @@
 public class PQ {
 
     public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 1, 23, 13, 1, 32, 1};
+        findIndexces(arr, 0, 1);
 
+
+        // Q2
+
+        int num = 1997;
+        String[] numsStr = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+        conveString(num, numsStr);
+
+        // Q3
+
+        String str = "Ishan";
+        System.out.println(lengthOfString(str));
     }
 
     /*
@@ -13,14 +26,28 @@ public class PQ {
         
         Sample Input : arr[ ] = {3, 2, 4, 5, 6, 2, 7, 2, 2}, key = 2
         Sample Output : 1 5 7 8
-     */
+    */
     
+    /*
+        so what is given - int arr of n size
+        find all indexces of a key and print them
+    */
+    public static void findIndexces(int[] arr, int n, int key) {
+        if (n == arr.length - 1 && arr[n] == key) {
+            System.out.println(n);
+            return;
+        }else if(n == arr.length-1){
+            return;
+        }
 
-    
+        if (arr[n] == key) {
+            System.out.println(n);
+            findIndexces(arr, n+1, key);
+        }else{
+            findIndexces(arr, n+1, key);
+        }
 
-
-
-
+    }
 
     /*
     Question 2 :
@@ -36,6 +63,16 @@ public class PQ {
 
 
 
+    public static void conveString(int num, String[] arr){
+        
+        if (num == 0) {
+            return;
+        }
+
+        int ld = num%10;
+        conveString(num/10,arr);
+        System.out.print(arr[ld]+" ");
+    }
 
 
 
@@ -45,9 +82,86 @@ public class PQ {
     */
 
 
+    public static int lengthOfString(String str){
+        if (str.length() == 0) {
+            return 0;
+        }
+
+        return 1+lengthOfString(str.substring(1));
+    }
 
 
 
+    /*
+        Question 4 :
+            We are given a string S, we need to find the count of all contiguous substrings starting and ending with the same character.
 
+            Sample Input 1 : S = "abcab"
+            Sample Output 1 : 7
+
+            There are 15 substrings of "abcab" : a, ab, abc, abca, abcab, b, bc, bca, bcab, c, ca, cab, a, ab, b Out of the above substrings, there are 7 substrings : a, abca, b, bcab, c, a and b. So, only 7 contiguous substrings start and end with the same character.
+
+            Sample Input 2 : S = "aba"
+            Sample Output 2 : 4
+
+            The substrings are a, b, a and aba.
+    */
+
+    public static void q4(){
         
+    }
+
+
+
+
+
+    /*
+        Question 5 : 
+            TOWER OF HANOI (Important!)
+            You have 3 towers and N disks of different sizes which can slide onto any tower. The puzzle starts with disks sorted in ascending order of size from top to bottom (i.e., each disk sits on top of an even larger one).
+
+
+            You have the following constraints:
+
+
+            (1) Only one disk can be moved at a time.
+            (2) A disk is slid off the top of one tower onto another tower.
+            (3) A disk cannot be placed on top of a smaller disk. Write a program to move the disks from
+            the first tower to the
+            last using Stacks.
+
+
+            Let rod 1 = 'A', rod 2 = 'B', rod 3 = 'C'.
+            An example with 2 disks i.e. N=2:
+
+            Step 1 : Shift the first disk from 'A' to 'B'.
+
+            Step 2 : Shift the second disk from 'A' to 'C'.
+
+            Step 3 : Shift the first disk from 'B' to 'C'.
+
+
+            An example with 3 disks i.e. N=3 :
+            Step 1 : Shift the first disk from 'A' to 'C'.
+            Step 2 : Shift second disk from 'A' to 'B'.
+            Step 3 : Shift the first disk from 'C' to 'B'.
+            Step 4 : Shift the third disk from 'A' to 'C'.
+            Step 5 : Shift the first disk from 'B' to 'A'.
+            Step 6 : Shift second disk from 'B' to 'C'.
+            Step 7 : Shift the first disk from 'A' to 'C'
+
+
+            The Approach here is :
+            - Shift 'n-1' disks from 'A' to 'B', using C.
+            - Shift the last disk from 'A' to 'C'.
+            - Shift 'n-1' disks from 'B' to 'C', using A.
+    */
+
+
+    public static void q5(){
+
+    }
+
+
+
 }
