@@ -5,17 +5,22 @@ public class PQ {
         int[] arr = {1, 2, 3, 4, 1, 23, 13, 1, 32, 1};
         findIndexces(arr, 0, 1);
 
-
         // Q2
-
         int num = 1997;
-        String[] numsStr = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+        String[] numsStr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
         conveString(num, numsStr);
 
         // Q3
-
         String str = "Ishan";
         System.out.println(lengthOfString(str));
+
+        // Q5
+        int n = 3;
+        towerOfHanoi(n, 'A', 'B', 'C');
+
+        // Q5
+        System.out.println("The valid substring are: "+q4("abcab", 0));
+
     }
 
     /*
@@ -26,25 +31,24 @@ public class PQ {
         
         Sample Input : arr[ ] = {3, 2, 4, 5, 6, 2, 7, 2, 2}, key = 2
         Sample Output : 1 5 7 8
-    */
-    
-    /*
+     */
+ /*
         so what is given - int arr of n size
         find all indexces of a key and print them
-    */
+     */
     public static void findIndexces(int[] arr, int n, int key) {
         if (n == arr.length - 1 && arr[n] == key) {
             System.out.println(n);
             return;
-        }else if(n == arr.length-1){
+        } else if (n == arr.length - 1) {
             return;
         }
 
         if (arr[n] == key) {
             System.out.println(n);
-            findIndexces(arr, n+1, key);
-        }else{
-            findIndexces(arr, n+1, key);
+            findIndexces(arr, n + 1, key);
+        } else {
+            findIndexces(arr, n + 1, key);
         }
 
     }
@@ -59,38 +63,29 @@ public class PQ {
         
         Sample Input : 1947
         Sample Output : “one nine four seven”
-    */
+     */
+    public static void conveString(int num, String[] arr) {
 
-
-
-    public static void conveString(int num, String[] arr){
-        
         if (num == 0) {
             return;
         }
 
-        int ld = num%10;
-        conveString(num/10,arr);
-        System.out.print(arr[ld]+" ");
+        int ld = num % 10;
+        conveString(num / 10, arr);
+        System.out.print(arr[ld] + " ");
     }
-
-
 
     /*
         Question 3 : 
             Write a program to find Length of a String using Recursion. 
-    */
-
-
-    public static int lengthOfString(String str){
+     */
+    public static int lengthOfString(String str) {
         if (str.length() == 0) {
             return 0;
         }
 
-        return 1+lengthOfString(str.substring(1));
+        return 1 + lengthOfString(str.substring(1));
     }
-
-
 
     /*
         Question 4 :
@@ -105,15 +100,19 @@ public class PQ {
             Sample Output 2 : 4
 
             The substrings are a, b, a and aba.
-    */
-
-    public static void q4(){
-        
+     */
+    public static int q4(String str, int b) {
+        if (b == str.length() - 1) {
+            return 1;
+        }
+        int count = 0;
+        for (int i = b; i < str.length(); i++) {
+            if (str.charAt(b) == str.charAt(i)) {
+                count++;
+            }
+        }
+        return count + q4(str, b + 1);
     }
-
-
-
-
 
     /*
         Question 5 : 
@@ -155,13 +154,23 @@ public class PQ {
             - Shift 'n-1' disks from 'A' to 'B', using C.
             - Shift the last disk from 'A' to 'C'.
             - Shift 'n-1' disks from 'B' to 'C', using A.
-    */
+     */
+    public static void towerOfHanoi(int n, char source, char helper, char destination) {
 
+        // Base case
+        if (n == 1) {
+            System.out.println("Move disk 1 from " + source + " to " + destination);
+            return;
+        }
 
-    public static void q5(){
+        // Step 1: Move n-1 disks from source to helper
+        towerOfHanoi(n - 1, source, destination, helper);
 
+        // Step 2: Move the largest disk from source to destination
+        System.out.println("Move disk " + n + " from " + source + " to " + destination);
+
+        // Step 3: Move n-1 disks from helper to destination
+        towerOfHanoi(n - 1, helper, source, destination);
     }
-
-
 
 }
